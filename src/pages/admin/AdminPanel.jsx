@@ -1,0 +1,22 @@
+import React from 'react'
+import Navbar from '../../components/admin/navbar/NavBar'
+import Footer from '../../components/admin/Footer'
+import { Outlet } from "react-router-dom";
+const AdminPanel = () => {
+  return (
+
+      <div className="flex flex-col h-screen ">
+        <Navbar />
+        <div className=" ">
+          <Outlet />
+        </div>
+  
+        <div className="relative">
+          <Footer />
+        </div>
+      </div>
+    );
+
+}
+
+export default AdminPanel
