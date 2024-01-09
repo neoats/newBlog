@@ -7,7 +7,7 @@ const Footer = () => {
     };
 
     return (
-        <div className=''>
+        <div className="min-h-min">
             {/* gray-part */}
             <div className='flex p-4 bg-gray-800 text-gray-200'>
                 <div className='max-w-7md pl-32 mx-auto'>
