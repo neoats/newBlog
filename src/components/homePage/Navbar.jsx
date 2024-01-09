@@ -11,22 +11,19 @@ import {
   FaTwitter,
   FaXmark,
 } from "react-icons/fa6";
-import {
-  logoutUserSuccess,
-  reset_login_flag,
-} from "../homePage/login/reducer";
+import { logoutUserSuccess, reset_login_flag } from "../homePage/login/reducer";
 import Login from "./login/Login";
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 
 const Navbar = () => {
-  const isLoggedIn = useSelector(state => state.login.isLoggedIn);
-  const isAdmin = useSelector(state => state.login.isAdmin);
+  const isLoggedIn = useSelector((state) => state.login.isLoggedIn);
+  const isAdmin = useSelector((state) => state.login.isAdmin);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [show, setShow] = useState(true);
   const dispatch = useDispatch();
-  
+
   const navItems = [
     { path: "/", link: "Home" },
     { path: "/services", link: "Services" },
@@ -60,39 +57,31 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = async () => {
-
     try {
-   
-      const token = sessionStorage.getItem("token")
-     
-      const response = await axios.delete(`${LOGOUT_API}`,
-        {
+      const token = sessionStorage.getItem("token");
+
+      const response = await axios.delete(`${LOGOUT_API}`, {
         headers: {
           Authorization: `${token}`,
         },
-      }
-      );
-      console.log(response)
-    
-      sessionStorage.removeItem("authUser")
-      sessionStorage.removeItem("token"); 
-    /*   setAdminStatus(false);  */
+      });
+      console.log(response);
+
+      sessionStorage.removeItem("authUser");
+      sessionStorage.removeItem("token");
+      /*   setAdminStatus(false);  */
 
       dispatch(logoutUserSuccess());
       dispatch(reset_login_flag());
-
-
     } catch (error) {
-      console.error('Logout error:', error);
+      console.error("Logout error:", error);
 
-    // Eğer sunucu HTTP 400 hatası döndüyse, hatanın içeriğini kontrol et
-    if (error.response) {
-      console.error('Server response data:', error.response.data);
-    }
+      // Eğer sunucu HTTP 400 hatası döndüyse, hatanın içeriğini kontrol et
+      if (error.response) {
+        console.error("Server response data:", error.response.data);
+      }
     }
   };
-
-
 
   return (
     <header
@@ -176,7 +165,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-{/* mobile */}
+      {/* mobile */}
       <ul
         className={`md:hidden gap-12 text-lg block space-y-4 px-4 py-6 mt-14 bg-white ${
           isMenuOpen
@@ -191,26 +180,25 @@ const Navbar = () => {
             </NavLink>
           </li>
         ))}
-           {isLoggedIn ? (
-              <>
-                <button
-                  onClick={handleLogout}
-                  className="text-black border-black border-2 placeholder:font-medium rounded  hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in"
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <button
-                  onClick={toggleLogin}
-                  className="text-black border-black border-2 mx-auto px-1 rounded-lg hover:text-orange-500 transition-all duration-200 ease-in"
-                >
-                  Log in
-                </button>
-              </>
-            )}
-    
+        {isLoggedIn ? (
+          <>
+            <button
+              onClick={handleLogout}
+              className="text-black border-black border-2 placeholder:font-medium rounded  hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              onClick={toggleLogin}
+              className="text-black border-black border-2 mx-auto px-1 rounded-lg hover:text-orange-500 transition-all duration-200 ease-in"
+            >
+              Log in
+            </button>
+          </>
+        )}
       </ul>
       {isLoginOpen && <Login toggleLogin={toggleLogin} />}
     </header>

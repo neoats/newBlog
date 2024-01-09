@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./LoginForm2.css";
 
 import { FaXmark } from "react-icons/fa6";
@@ -6,67 +6,29 @@ import axios from "axios";
 import { LOGIN_API } from "../../../services/api/config";
 
 import { APIClient } from "./api_helper";
-import {
-  loginSuccess,
-  apiError,
-} from "./reducer";
+import { loginSuccess, apiError } from "./reducer";
 import { useDispatch } from "react-redux";
 
 const LoginForm2 = ({ toggleLogin }) => {
   const dispatch = useDispatch();
-  const userRef = useRef(null);
-  const [username, setUsername] = useState("");
+  const [inputValue, setInputValue] = useState("");
+  const [dataType, setDataType] = useState(null);
   const [pwd, setPwd] = useState("");
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    userRef.current.focus();
-  }, []);
-
-  useEffect(() => {
     setError("");
-  }, [username, pwd]);
-
-/*   const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    try {
-      const response = await axios.post(
-        `${LOGIN_API}`,
-        { username: username, password: pwd },
-        {
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
-
-      const accessToken = response.data.accessToken;
-      const auth = response.data.user.isAdmin;
-
-      setIsAdmin(auth);
-      // setIsLoggedIn(true);
-      setUsername('');
-      setPwd('');
-      toggleLogin();
-   console.log(response)
-    } catch (error) {
-      console.error('Error during login:', error);
-      setError('Invalid username or password');
-      setIsLoggedIn(false);
-    }
-  }; */
-
-  const handleClose = () => {
-    setError(null);
-    setIsLoggedIn(false);
-  };
+  }, [inputValue, pwd]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       const response = await new APIClient().create(`${LOGIN_API}`, {
-        username: username,
+        usernameOrEmail: inputValue,
         password: pwd,
       });
+
       if (response) {
         dispatch(
           loginSuccess({
@@ -76,7 +38,7 @@ const LoginForm2 = ({ toggleLogin }) => {
           })
         );
         sessionStorage.setItem("authUser", JSON.stringify(response));
-        console.log(response);
+        /*    console.log(response); */
         sessionStorage.setItem("token", response.accessToken);
         toggleLogin();
       }
@@ -85,9 +47,28 @@ const LoginForm2 = ({ toggleLogin }) => {
       console.error("Error during login:", error);
       setError("Invalid username or password");
     }
-    
   };
-  
+
+  const handleClose = () => {
+    setError(null);
+    setIsLoggedIn(false);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit();
+    }
+  };
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setInputValue(value);
+
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+    setDataType(isEmail ? "Email" : "Username");
+  };
+
   return (
     <div className="box">
       <span className="borderLine"></span>
@@ -103,14 +84,11 @@ const LoginForm2 = ({ toggleLogin }) => {
         <h1 className="mb-3 fw-normal">Please sign in</h1>
 
         <div className="inputBox">
-          <span>Email or Username</span>
           <input
             type="text"
-            id="username"
-            name="username"
-            ref={userRef}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={inputValue}
+            onChange={handleInputChange}
+            placeholder="Kullanıcı Adı veya E-posta"
             required
           />
           <i></i>
@@ -119,7 +97,7 @@ const LoginForm2 = ({ toggleLogin }) => {
         <div className="inputBox">
           <span>Password</span>
           <input
-            type="password"
+            type="password" /*  */
             id="password"
             name="password"
             value={pwd}
@@ -135,6 +113,8 @@ const LoginForm2 = ({ toggleLogin }) => {
         </div>
 
         <button
+          type="button"
+          onKeyPress={handleKeyPress}
           onClick={handleSubmit}
           className="bg-orange-500 w-32 mt-2 px-6 py-2 font-medium rounded-sm text-white hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in"
         >

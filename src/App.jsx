@@ -1,6 +1,6 @@
 // App.jsx
 import React from "react";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 import store from "./components/homePage/login/store";
 import "./App.css";
 import { Outlet } from "react-router-dom";
@@ -10,7 +10,7 @@ import Footer from "./components/homePage/footer/Footer";
 function App() {
   return (
     <Provider store={store}>
-      <div className="flex flex-col h-screen ">
+      <div className="flex flex-col min-h-screen">
         <Navbar />
         <div className="overflow-y-scroll flex-1">
           <Outlet />

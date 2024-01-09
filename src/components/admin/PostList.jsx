@@ -43,22 +43,38 @@ const PostList = () => {
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setCurrentPage(1);
-    setActiveCategory(category ? [category] : []);66
+    setActiveCategory(category ? [category] : []);
+    66;
   };
 
   return (
-  <div className="mt-8 mx-32 bg-blue-200 ">
-      <h2 className="text-2xl font-bold border-b-black border-b-2 ">Tüm Postlar</h2>
-      <div className="mt-5  ">
-      
-          <BlogElements
-            posts={posts}
-            currentPage={currentPage}
-            selectedCategory={selectedCategory}
-            pageSize={pageSize}
-            handleDelete={handleDelete}
-          />
-   
+    <div className="mt-8 bg-blue-200 w-1/2 mx-auto">
+      <h2 className="text-2xl font-bold border-b-black border-b-2">
+        Tüm Postlar
+      </h2>
+      <div className="mt-5">
+        <table className="table-fixed w-full">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="px-4 py-2">Seç</th>
+              <th className="px-4 py-2">Fotoğraf</th>
+              <th className="px-4 py-2">Başlık</th>
+              <th className="px-4 py-2">Yazar</th>
+              <th className="px-4 py-2">Özet</th>
+              <th className="px-4 py-2">Yayın Tarihi</th>
+              <th className="px-4 py-2">İşlemler</th>
+            </tr>
+          </thead>
+          <tbody>
+            <BlogElements
+              posts={posts}
+              currentPage={currentPage}
+              selectedCategory={selectedCategory}
+              pageSize={pageSize}
+              handleDelete={handleDelete}
+            />
+          </tbody>
+        </table>
       </div>
     </div>
   );
