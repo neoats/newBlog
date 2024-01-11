@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+
+body{
+    font-family: 'Inter',sans-serif;
+  
+}
+
+.active{
+    @apply text-orange-500 underline-offset-4
+}
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+
+}
+.App{
+    position: fixed;
+}
+
+.pagination li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    
+    margin:0;
+    padding:0;
+
+}
+
+.pagination a{
+    display: inline-block;
+    padding:5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #000;
+    
+
+}
+.pagination a:hover{
+ 
+    background-color: black;
+    color:white;
+
+}
+.pagination li:hover{
+ 
+    background-color: black;
+    color:white;
+
+}
+.pagination li.activePagination{
+ 
+    background-color: rgb(255,106,0);
+    color:white;
+
+}
+
+.active-button{
+    color:#fc3c1a
+}
+.active-panel{
+    color:#fc3c1a
+}
