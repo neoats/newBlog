@@ -19,7 +19,7 @@ jobs:
       - name: Update Prod branch
         run: |
      
-          git config user.email "${{ fuatatessacan }}@gmail.com"
+      
           git checkout prod
           git merge ${{ github.event.inputs.branch }} --no-edit
           git push origin prod
