@@ -16,11 +16,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Update Prod branch
+     - name: Update Prod 
         run: |
-     
-      
           git checkout prod
-          git merge ${{ github.event.inputs.branch }} --no-edit
+          git merge --no-ff ${{ github.event.inputs.branch }} --no-edit
           git push origin prod
 
