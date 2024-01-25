@@ -1,0 +1,21 @@
+@import 'swiper/swiper-bundle.css';
+
+
+.swiper {
+ 
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide {
+ 
+ 
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide img {
+  display: block;
+  min-width: 100%;
+  object-fit: cover;
+}

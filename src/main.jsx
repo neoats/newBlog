@@ -6,10 +6,12 @@ import "./index.css";
 
 import Home from "./pages/main/Home";
 import Blogs from "./pages/main/Blogs";
+import News from "./pages/main/News";
 import About from "./pages/main/About";
 import Contact from "./pages/main/Contact.jsx";
+import Products from "./pages/main/Products.jsx";
 import Services from "./pages/main/Services.jsx";
-import MobileLanding from"./pages/mobileLp/MobileLanding.jsx";
+import MobileLanding from "./pages/mobileLp/MobileLanding.jsx";
 import AdminPanel from "./pages/admin/AdminPanel.jsx";
 import AddPost from "./components/admin/AddPost.jsx";
 import PostList from "./components/admin/PostList.jsx";
@@ -29,8 +31,16 @@ const router = createBrowserRouter([
         element: <Blogs />,
       },
       {
+        path: "/news",
+        element: <News />,
+      },
+      {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
       },
       {
         path: "/contact",
@@ -43,19 +53,15 @@ const router = createBrowserRouter([
     ],
   },
   {
-
     path: "/mobile",
-
 
     element: <MobileLanding />,
   },
   {
-
     path: "/admin",
 
-
     element: <AdminPanel />,
-    children:[
+    children: [
       {
         path: "addpost",
         element: <AddPost />,
@@ -64,17 +70,16 @@ const router = createBrowserRouter([
         path: "postlist",
         element: <PostList />,
       },
-
-    ]
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-<React.StrictMode>
-{/*     <AuthProvider> */}
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
-   {/*  </AuthProvider> */}
-  </React.StrictMode>,
+  <React.StrictMode>
+    {/*     <AuthProvider> */}
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
+    {/*  </AuthProvider> */}
+  </React.StrictMode>
 );

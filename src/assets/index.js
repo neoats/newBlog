@@ -9,6 +9,7 @@ import scene from "./scene.png";
 import mockup from "./mockup.png";
 import gitlogo from "./gitlogo.png";
 import up from "./up.png";
+import fmode from "./fmode.png";
 export default {
   homeHero,
   homeCards,
@@ -20,5 +21,6 @@ export default {
   scene,
   mockup,
   gitlogo,
-  up
+  up,
+  fmode,
 };

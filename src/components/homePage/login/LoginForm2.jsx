@@ -38,7 +38,7 @@ const LoginForm2 = ({ toggleLogin }) => {
           })
         );
         sessionStorage.setItem("authUser", JSON.stringify(response));
-        /*    console.log(response); */
+        console.log(response);
         sessionStorage.setItem("token", response.accessToken);
         toggleLogin();
       }

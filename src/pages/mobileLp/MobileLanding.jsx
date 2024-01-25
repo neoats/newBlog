@@ -1,4 +1,9 @@
-import { Features, Download, SectionWrapper, Line } from "../../components/landingPage";
+import {
+  Features,
+  Download,
+  SectionWrapper,
+  Line,
+} from "../../components/landingPage";
 import assets from "../../assets";
 import Button from "../../components/landingPage/Button";
 import styles from "../../styles/Global";
@@ -6,17 +11,13 @@ const MobileLanding = () => {
   return (
     <div className="space-around">
       <div>
-
         <SectionWrapper
           title="You own store of Nifty NFTs."
           description="Buy, store, collect NFTs"
           showBtn
           mockupImg={assets.homeHero}
           banner="banner"
-        >
-
-        </SectionWrapper>
-
+        ></SectionWrapper>
 
         <SectionWrapper
           title="Smart User Interface Marketplace "
@@ -32,7 +33,6 @@ const MobileLanding = () => {
           description="Buy,store,collect NFTs"
           mockupImg={assets.feature}
           banner="banner"
-
         />
 
         <SectionWrapper
@@ -50,7 +50,7 @@ const MobileLanding = () => {
     ${styles.whiteText}
     `}
         >
-          Made with Love by <span className="bold">JavaScript Mastery</span>
+          <span className="bold">JavaScript Mastery</span>
         </p>
       </div>
     </div>

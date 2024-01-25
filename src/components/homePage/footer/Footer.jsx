@@ -8,7 +8,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="w-full">
+    <div>
       {/* gray-part */}
       <div className="flex p-4 bg-gray-800 text-gray-200">
         <div className="max-w-7md mx-auto">
@@ -17,16 +17,12 @@ const Footer = () => {
               <h2 className="font-bold text-md pb-2 border-b hover:border-orange-500 hover:text-orange-500">
                 Company
               </h2>
-              <div className="pt-2">
-                ______________
-                <br />
-                ______________
-                <br />
-                ______________
-                <br />
-                ______________
-                <br />
-              </div>
+              <ul className="pt-2 pl-2">
+                <li className="text-sm hover:text-orange-500">Link #1</li>
+                <li className="text-sm hover:text-orange-500">Link #2</li>
+                <li className="text-sm hover:text-orange-500">Link #3</li>
+                <li className="text-sm hover:text-orange-500">Link #4</li>
+              </ul>
             </div>
             <div className="mb-5">
               <h2 className="font-bold text-md pb-2 border-b hover:border-orange-500 hover:text-orange-500">
@@ -57,8 +53,8 @@ const Footer = () => {
                 <li className="text-sm hover:text-orange-500">
                   Mobile Development
                 </li>
-                <li className="text-sm hover:text-orange-500">___________</li>
-                <li className="text-sm hover:text-orange-500">___________</li>
+                <li className="text-sm hover:text-orange-500">Link #1</li>
+                <li className="text-sm hover:text-orange-500">Link #2</li>
               </ul>
             </div>
           </div>
