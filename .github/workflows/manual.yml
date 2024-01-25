@@ -1,0 +1,23 @@
+name: Update Prod on Pre-Prod Push
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to merge from'
+        required: true
+        default: 'pre-prod'
+
+jobs:
+  update-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Update Prod 
+        run: |
+          git checkout prod
+          git merge --no-ff ${{ github.event.inputs.branch }} --no-edit
+          git push origin prod
