@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NewsCard from "./NewsCard";
+import NewsCard from "./newsCard";
 import { getData } from "../../services/api/newsApi";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination } from "swiper/modules";
