@@ -12,6 +12,6 @@ export const getData = async () => {
 
     return data;
   } catch (error) {
-    console.error(errors.fetchError);
+    console.error(error.fetchError);
   }
 };
