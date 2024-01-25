@@ -1,5 +1,5 @@
 import React from "react";
-import NewsPageContent from "../../components/news/newsPageContent";
+import NewsPageContent from "../../components/news/NewsPageContent";
 
 const News = () => {
   return (
