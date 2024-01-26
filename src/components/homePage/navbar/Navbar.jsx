@@ -189,7 +189,7 @@ const Navbar = () => {
   return (
     <header
       style={{ display: show ? "block" : "none" }}
-      className="bg-black text-white fixed top-0 min-w-full"
+      className="bg-black text-white"
     >
       {/* Subheader */}
       <div className="flex justify-center items-center gap-44 mx-auto overflow-x-hidden">
@@ -213,7 +213,7 @@ const Navbar = () => {
           <img src={fmode.fmode} alt="mockup" className="h-12 w-36 mr-3" />
           <ul className="md:flex md:gap-3 lg:gap-6 xl:gap-8  justify-center  items-center text-lg hidden">
             {navItems.map(({ path, link }) => (
-              <li className="text-white" key={path}>
+              <li className="text-white " key={path}>
                 <NavLink
                   to={path}
                   className={({ isActive, isPending }) =>

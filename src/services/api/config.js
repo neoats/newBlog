@@ -1,9 +1,9 @@
 const LOGIN_API = "https://api.fmode.net/login";
 const LOGOUT_API = "https://api.fmode.net/logout";
-const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-const NEWS_API = `https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=${apiKey}`;
+const NEWS_API = "http://api.fmode.net/news";
 
 /* const LOGIN_API = "http://localhost:4001/login";
-const LOGOUT_API = "http://localhost:4001/logout"; */
+const LOGOUT_API = "http://localhost:4001/logout";
+const NEWS_API = "http://localhost:4001/news"; */
 
-export { LOGIN_API, LOGOUT_API, NEWS_API };
+export { LOGIN_API, LOGOUT_API, NEWS_API, apiKey };

@@ -1,8 +1,10 @@
-import { NEWS_API } from "./config";
+import { apiKey, NEWS_API } from "./config";
 
+/* const url_us = NEWS_API + `${apiKey}`; */
 const url_us = NEWS_API;
 
 export const getData = async () => {
+  console.log(url_us);
   try {
     const response = await fetch(url_us);
     if (!response.ok) {

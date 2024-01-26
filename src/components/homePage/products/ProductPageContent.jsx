@@ -1,20 +1,31 @@
 import React from "react";
+import "./Style.css";
+import Product from "./Product";
+import Logo from "./Logo";
+import Button from "./Button";
+import Kabuk1 from "../../../assets/kabuk1.png";
+import Product1 from "../../../assets/product1.png";
 
 const ProductPageContent = () => {
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
-      <h1 className="text-2xl font-bold text-gray-800 dark:text-white mb-10">
-        Everse - John Doe
-      </h1>
+    <div>
+      <div
+        id="myDiv"
+        className={` pt-10 flex flex-col gap-12 justify-center items-center gradient-bg`}
+      >
+        <Logo imgUrl={Kabuk1} />
+        <Product imgUrl={Product1} />
+        <Button url={"https://kabukstore.art/home"} />
+      </div>
 
-      <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-6">
-        Ana Sayfalar
-      </h2>
-
-      <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-6">
-        Bileşenler
-      </h2>
-      <div className="grid grid-cols-3 gap-4"></div>
+      <div
+        id="myDiv"
+        className={`flex flex-col gap-12 justify-center items-center gradient-bg2`}
+      >
+        <Logo />
+        <Product />
+        <Button />
+      </div>
     </div>
   );
 };

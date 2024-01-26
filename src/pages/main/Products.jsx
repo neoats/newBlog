@@ -3,7 +3,7 @@ import ProductPageContent from "../../components/homePage/products/ProductPageCo
 
 const Products = () => {
   return (
-    <div className="">
+    <div className="  bg-gray-800">
       <ProductPageContent />
     </div>
   );

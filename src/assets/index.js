@@ -10,6 +10,8 @@ import mockup from "./mockup.png";
 import gitlogo from "./gitlogo.png";
 import up from "./up.png";
 import fmode from "./fmode.png";
+import kabuk1 from "./kabuk1.png";
+
 export default {
   homeHero,
   homeCards,
@@ -23,4 +25,5 @@ export default {
   gitlogo,
   up,
   fmode,
+  kabuk1,
 };
