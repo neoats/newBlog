@@ -1,6 +1,6 @@
 const LOGIN_API = "https://api.fmode.net/login";
 const LOGOUT_API = "https://api.fmode.net/logout";
-const NEWS_API = "http://api.fmode.net/news";
+const NEWS_API = "https://api.fmode.net/news";
 
 /* const LOGIN_API = "http://localhost:4001/login";
 const LOGOUT_API = "http://localhost:4001/logout";
